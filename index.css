@@ -8,7 +8,7 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
-
+/* ----------------------------------NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -23,7 +23,7 @@ body {
     display: flex;
     justify-content: center;
     font-weight: bolder;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
 }
 
 .nav-links {
@@ -35,9 +35,9 @@ body {
 }
 
 .nav-links li a {
-    color: #938F95;
+    color: #6c686d;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.25rem;
 }
 
 .side-bar-button {
@@ -106,4 +106,137 @@ body {
     display: flex;
     animation: dropDown 0.5s forwards;
 }
+
+/* ------------HERO-SECTION---------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+*{
+    font-family: "Lexend", sans-serif;
+    font-style: normal;
+}
+.front-section {
+    margin-top: -60px;
+    display: flex;
+    height: 100vh;
+    padding: 0 20px;
+}
+
+.left-side, .right-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;  /* Align items to the left */
+}
+
+.left-side {
+    margin-left: 75px;
+    text-align: left;
+}
+
+.left-side h1 {
+    font-size: 4.5rem;
+    font-weight: 500;
+    margin-bottom: 1px;
+}
+.phrase{
+    margin-top: -10px;
+}
+.left-side .highlighted-text {
+    display: block;  /* Ensure each part is on a new line */
+}
+
+.left-side p {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.left-side button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 20px;
+    margin-bottom: 0;
+    background-color: #d79720;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.right-side .hero-image {
+    width: 50%;
+    margin-left: 50px;
+    border: 50px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-side .hero-image img {
+    width: 100%;
+    height: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    .front-section {
+        flex-direction: column;
+        padding: 0 10px;
+        margin-top: 0;  /* Adjust margin for mobile */
+        overflow-x: hidden;  /* Prevent horizontal scrolling */
+    }
+
+    .left-side {
+        margin: 0;
+        align-items: center;  /* Align items to the center */
+        text-align: center;
+        width: 100%;  /* Ensure full width */
+        order: 1;  /* Ensure left side content appears first */
+    }
+
+    .left-side h1 {
+        font-size: 2.5rem;  /* Adjusted font size for mobile */
+        word-wrap: break-word;  /* Ensure long words break */
+    }
+
+    .left-side p {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        word-wrap: break-word;  /* Ensure long words break */
+    }
+
+    .left-side button {
+        font-size: 0.9rem;
+        width: auto;  /* Ensure button doesn't overflow */
+    }
+
+    .right-side {
+        width: 100%;
+        order: 2;  /* Ensure right side content appears second */
+        display: flex;
+        justify-content: center;  /* Center the image */
+        align-items: center;  /* Center the image */
+    }
+
+    .right-side {
+        width: 100%;
+        order: 2;  /* Ensure right side content appears second */
+    }
+
+    .right-side .hero-image {
+        width: 100%;
+        margin-top: -30px;
+        margin-bottom: 40px;
+        margin-right: 50px;
+        border: none;
+        justify-content: center;
+    }
+
+    .right-side .hero-image img {
+        width: 80%;
+        height: auto;
+        border-radius: 5%;
+
+    }
+}
+
+
 
