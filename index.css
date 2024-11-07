@@ -1,0 +1,109 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+body {
+    font-family: "Lexend", sans-serif;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.logo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    flex: 1;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 50%;
+}
+
+.nav-links li a {
+    color: #938F95;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.side-bar-button {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.side-bar-button div {
+    width: 25px;
+    height: 3px;
+    background-color: #938F95;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .logo{
+        font-size: 1.3rem;
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #ffffff;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+        opacity: 0;
+        padding-left: 20px;  /* Optional, for better alignment */
+    }
+
+    .nav-links.active {
+        display: flex;
+        max-height: 500px;  /* Adjust this to fit the content */
+        opacity: 1;
+    }
+
+    .nav-links li {
+        margin-left: 20px;
+        margin-top: 5px;
+        width: 30%;  /* 3/10th of the width */
+        margin-bottom: 10px;  /* Optional, for spacing between items */
+    }
+
+    .side-bar-button {
+        display: flex;
+    }
+}
+
+@keyframes dropDown {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 500px; /* Adjust this to fit the content */
+        opacity: 1;
+    }
+}
+
+.nav-links.active {
+    display: flex;
+    animation: dropDown 0.5s forwards;
+}
+
