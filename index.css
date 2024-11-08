@@ -8,15 +8,29 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+
 /* ----------------------------------NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #ffffff;
+    background: linear-gradient(to bott, #776e5c, #ffffff);
     color: #000000;
+    position: fixed;
+    /* Make the navbar fixed */
+    width: 100%;
+    /* Ensure the navbar spans the full width */
+    top: 0;
+    /* Position the navbar at the top */
+    left: 0;
+    /* Align the navbar to the left edge */
+    z-index: 1000;
+    /* Ensure the navbar is on top of other elements */
+    box-sizing: border-box;
+    /* Include padding in the element's total width and height */
 }
+
 
 .logo {
     flex: 1;
@@ -38,8 +52,25 @@ body {
     color: #6c686d;
     text-decoration: none;
     font-size: 1.25rem;
+    position: relative; /* Required for absolute positioning of the overline */
+}
+.nav-links li a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Thickness of the overline */
+    background-color: #6c686d; /* Color of the overline */
+    bottom: 0; /* Position it at the bottom of the text */
+    left: 0;
+    transform: scaleX(0); /* Initially scale the overline to 0 */
+    transform-origin: bottom right;
+    transition: transform 0.3s ease; /* Only transition the overline's appearance */
 }
 
+.nav-links li a:hover::before {
+    transform: scaleX(1); /* Scale the overline to full width on hover */
+    transform-origin: bottom left;
+}
 .side-bar-button {
     display: none;
     cursor: pointer;
@@ -55,35 +86,48 @@ body {
 
 /* Responsive styles */
 @media (max-width: 768px) {
-    .logo{
+    .logo {
         font-size: 1.3rem;
     }
+
     .nav-links {
         display: none;
         flex-direction: column;
-        background-color: #ffffff;
+        background-color: #f1f1f1;
         position: absolute;
         top: 60px;
+        /* Ensure this is right below the navbar */
         right: 0;
         width: 100%;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.5s ease-in-out;
         opacity: 0;
-        padding-left: 20px;  /* Optional, for better alignment */
+        margin: 0;
+        /* Remove any margin */
+        padding: 0;
+        /* Remove any padding */
+        border-bottom-left-radius: 15px;
+        /* Rounded bottom-left corner */
+        border-bottom-right-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        /* Soft shadow for depth */
     }
 
     .nav-links.active {
         display: flex;
-        max-height: 500px;  /* Adjust this to fit the content */
+        max-height: 500px;
+        /* Adjust this to fit the content */
         opacity: 1;
     }
 
     .nav-links li {
         margin-left: 20px;
         margin-top: 5px;
-        width: 30%;  /* 3/10th of the width */
-        margin-bottom: 10px;  /* Optional, for spacing between items */
+        width: 30%;
+        /* 3/10th of the width */
+        margin-bottom: 10px;
+        /* Optional, for spacing between items */
     }
 
     .side-bar-button {
@@ -91,13 +135,16 @@ body {
     }
 }
 
+
 @keyframes dropDown {
     from {
         max-height: 0;
         opacity: 0;
     }
+
     to {
-        max-height: 500px; /* Adjust this to fit the content */
+        max-height: 500px;
+        /* Adjust this to fit the content */
         opacity: 1;
     }
 }
@@ -110,23 +157,27 @@ body {
 /* ------------HERO-SECTION---------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
-*{
+* {
     font-family: "Lexend", sans-serif;
     font-style: normal;
 }
+
 .front-section {
+    background: linear-gradient(to top, #776e5c, #ffffff);
     margin-top: -60px;
     display: flex;
     height: 100vh;
     padding: 0 20px;
 }
 
-.left-side, .right-side {
+.left-side,
+.right-side {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;  /* Align items to the left */
+    align-items: flex-start;
+    /* Align items to the left */
 }
 
 .left-side {
@@ -139,11 +190,14 @@ body {
     font-weight: 500;
     margin-bottom: 1px;
 }
-.phrase{
+
+.phrase {
     margin-top: -10px;
 }
+
 .left-side .highlighted-text {
-    display: block;  /* Ensure each part is on a new line */
+    display: block;
+    /* Ensure each part is on a new line */
 }
 
 .left-side p {
@@ -180,45 +234,58 @@ body {
     .front-section {
         flex-direction: column;
         padding: 0 10px;
-        margin-top: 0;  /* Adjust margin for mobile */
-        overflow-x: hidden;  /* Prevent horizontal scrolling */
+        margin-top: 0;
+        /* Adjust margin for mobile */
+        overflow-x: hidden;
+        /* Prevent horizontal scrolling */
     }
 
     .left-side {
         margin: 0;
-        align-items: center;  /* Align items to the center */
+        align-items: center;
+        /* Align items to the center */
         text-align: center;
-        width: 100%;  /* Ensure full width */
-        order: 1;  /* Ensure left side content appears first */
+        width: 100%;
+        /* Ensure full width */
+        order: 1;
+        /* Ensure left side content appears first */
     }
 
     .left-side h1 {
-        font-size: 2.5rem;  /* Adjusted font size for mobile */
-        word-wrap: break-word;  /* Ensure long words break */
+        font-size: 2.5rem;
+        /* Adjusted font size for mobile */
+        word-wrap: break-word;
+        /* Ensure long words break */
     }
 
     .left-side p {
         font-size: 1rem;
         margin-bottom: 10px;
-        word-wrap: break-word;  /* Ensure long words break */
+        word-wrap: break-word;
+        /* Ensure long words break */
     }
 
     .left-side button {
         font-size: 0.9rem;
-        width: auto;  /* Ensure button doesn't overflow */
+        width: auto;
+        /* Ensure button doesn't overflow */
     }
 
     .right-side {
         width: 100%;
-        order: 2;  /* Ensure right side content appears second */
+        order: 2;
+        /* Ensure right side content appears second */
         display: flex;
-        justify-content: center;  /* Center the image */
-        align-items: center;  /* Center the image */
+        justify-content: center;
+        /* Center the image */
+        align-items: center;
+        /* Center the image */
     }
 
     .right-side {
         width: 100%;
-        order: 2;  /* Ensure right side content appears second */
+        order: 2;
+        /* Ensure right side content appears second */
     }
 
     .right-side .hero-image {
@@ -237,6 +304,3 @@ body {
 
     }
 }
-
-
-
